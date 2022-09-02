@@ -15,10 +15,9 @@ const fetchingCategoryList = async () =>{
 }
 // displaying category list
 
-const displayCategoryList = async (categories) =>{
-    
-    
-    categories.forEach(category => {
+const displayCategoryList =  (categories) =>{
+        
+        categories.forEach(category => {
         const {category_name : categoryName , category_id : id} = category
         const createLi = document.createElement('li')
         createLi.onclick = () => displayPost(id) 

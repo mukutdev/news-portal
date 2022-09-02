@@ -1,4 +1,34 @@
 /* google font montserrat */
-body{
+*{
     font-family: 'Montserrat', sans-serif;
+}
+
+/* global styles */
+:root{
+    --color-blueish: #6047EC;
+    --color-black :rgb(22, 22, 22);
+    --light-gray:rgb(134, 134, 134);
+}
+.button-clr{
+    background-color: var(--color-blueish);
+}
+.active-link{
+    color: var(--color-blueish) !important;
+}
+.semibold-text{
+    font-weight: 500 !important;
+    font-size: 16px;
+    color: var(--color-black);
+    cursor: pointer;
+    transition: .4s ease-in;
+}
+.semibold-text:hover{
+    color: var(--color-blueish);
+}
+.user-image-circle{
+ height: 55px;
+ width: 55px;
+ margin-left: 20px;
+ padding: 3px;
+ border: 2px solid var(--light-gray)
 }

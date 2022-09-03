@@ -8,6 +8,8 @@
     --color-blueish: #6047EC;
     --color-black :rgb(22, 22, 22);
     --light-gray:rgb(134, 134, 134);
+    --color-white: #fff;
+    --color-light:#F8F9FA;
 }
 .button-clr{
     background-color: var(--color-blueish);
@@ -32,3 +34,35 @@
  padding: 3px;
  border: 2px solid var(--light-gray)
 }
+
+  .btn-common{
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    
+  }
+  .btn-bg{
+    background-color: var(--color-blueish);
+    color: var(--color-light);
+    border: 1px solid transparent ;
+  }
+  .btn-common:hover{
+    border: 1px solid var(--color-blueish);
+    background-color: transparent;
+    color: var(--color-black) ;
+  }
+  
+  .btn-border{
+      border: 1px solid var(--color-blueish);
+      background-color: transparent;
+  }
+  .btn-border:hover{
+    background-color: var(--color-blueish);
+    color: var(--color-light);
+    border: 1px solid transparent ;
+  }
+  .post-img{
+    height: 260px;
+    width: 250px;
+    object-fit: cover;
+  }

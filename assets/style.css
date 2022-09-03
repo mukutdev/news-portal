@@ -34,7 +34,11 @@
  padding: 3px;
  border: 2px solid var(--light-gray)
 }
-
+/* .active-li{
+  background-color: #eeefff !important;
+  color: var(--color-blueish);
+  padding: 3px 4px;
+} */
   .btn-common{
     padding: 8px 15px;
     font-size: 16px;
@@ -63,10 +67,17 @@
   }
   .post-img{
     height: 260px;
-    width: 250px;
+    width: 100%;
     object-fit: cover;
   }
   .max-width{
     max-width: 50% !important;
   }
- 
+  /*  */
+ /* media queries */
+
+@media screen and (max-width:575px){
+  .max-width{
+    max-width: 100% !important;
+  }
+}

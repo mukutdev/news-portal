@@ -25,7 +25,7 @@
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse " id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto align-items-center">
                       <li class="nav-item">
                         <a class="semibold-text nav-link  active-link" aria-current="page" href="./index.html">News</a>
                       </li>
@@ -45,8 +45,23 @@
         <!-- news category list -->
         <section class="news-category py-4">
             <div class="container">
-                <div class="category-wrapper">
-                    <ul id="category-list" class=" justify-content-around d-flex">
+              <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav  mb-2 mb-lg-0" id="category-list">
+                      
+                      
+                      
+                    </ul>
+      
+                  </div>
+                </div>
+              </nav>
+                   <!--  -->
+                    <ul id="category-list" class=" justify-content-around   d-flex ">
 
                     </ul>
                 </div>
@@ -65,14 +80,14 @@
         <section class="news-sorting my-4">
             <div class="container">
                 <div class="row justify-content-between">
-                    <div class="sort-filter col-lg-8">
+                    <div class="sort-filter col-lg-8 col-12">
                         <span>Sort By View</span>
-                        <select class="form-select w-25 d-inline ms-4" aria-label="Default select example">
+                        <select class="form-select w-50 w-lg-25 d-inline ms-4" aria-label="Default select example">
                             <option selected>Default</option>
                             <option selected>Most Popular</option>
                           </select>
                     </div>
-                    <div class="sort-buttons d-flex justify-content-end col-lg-4">
+                    <div class="sort-buttons d-flex justify-content-lg-end justify-content-center my-3 col-lg-4 col-12">
                         <button class="btn-bg  btn-common rounded-2 ms-2">Todays Pick</button>
                         <button class=" rounded-2 ms-2 btn-common btn-border">Trending</button>
                     </div>

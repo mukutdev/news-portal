@@ -14,9 +14,7 @@
 .button-clr{
     background-color: var(--color-blueish);
 }
-.active-link{
-    color: var(--color-blueish) !important;
-}
+
 .semibold-text{
     font-weight: 500 !important;
     font-size: 16px;

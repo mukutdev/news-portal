@@ -42,13 +42,17 @@ const displayCategoryList =  (categories) =>{
 // fetchingCategory Post function 
 
 const fetchingCategoryPost = async (id , categoryName) => {
+    // show spinner
+    toggleSpinner(true)
+   
     try{ 
         const url = `https://openapi.programming-hero.com/api/news/category/${id}`
         const res = await fetch(url)
         const data = await res.json()
+         
         displayPost(data.data);
         catName.innerText = categoryName;
-        catCount.innerText = data.data.length ? data.data.length : 'No post found'
+        catCount.innerText = data.data.length ? data.data.length : 'No post found ', toggleSpinner(false);
     }
     catch(err){
         console.log(err);
@@ -62,12 +66,12 @@ const displayPost = (posts) =>{
 
     const defCoverImg = `https://placehold.jp/400x400.png`
     const defUserImg = `https://placehold.jp/150x150.png`
-
+    // showing post in descending order
+    
     posts.sort((a, b) => b.total_view - a.total_view)
-
+    
     newsWrapper.innerHTML = '';
     posts.forEach(post =>{
-
         const {_id : id ,image_url, title , details , author :{name ,published_date , img} , total_view} = post
         const createNewsDiv = document.createElement('div')
         createNewsDiv.classList.add('card' ,  'mb-3' , 'border-0' , 'shadow-sm' ,'rounded-3', 'p-4')
@@ -110,7 +114,22 @@ const displayPost = (posts) =>{
       </div>
         `
         newsWrapper.appendChild(createNewsDiv)
+        
+        // hide spinner
+        toggleSpinner(false)
+      
     })
+}
+
+//  spinner function
+
+const toggleSpinner = isLoading =>{
+    const spinner = document.getElementById('spinner')
+    if(isLoading){
+        spinner.classList.remove('d-none')
+    }else{
+        spinner.classList.add('d-none')
+    }
 }
 // calling function
 fetchingCategoryList()

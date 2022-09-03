@@ -70,9 +70,7 @@
                         <select class="form-select w-25 d-inline ms-4" aria-label="Default select example">
                             <option selected>Default</option>
                             <option selected>Most Popular</option>
-                             
                           </select>
-                        
                     </div>
                     <div class="sort-buttons d-flex justify-content-end col-lg-4">
                         <button class="btn-bg  btn-common rounded-2 ms-2">Todays Pick</button>
@@ -84,7 +82,7 @@
 
         <section class="my-4">
             <div class="container">
-                <button class="btn btn-primary d-block mx-auto my-5 d-none" type="button" id="spinner">
+                <button class="btn-common btn-bg d-block mx-auto my-5 d-none" type="button" id="spinner">
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     Loading...
                   </button>
@@ -93,6 +91,12 @@
                 
             </div>
         </section>
+
+        <!-- Vertically centered scrollable modal -->
+        <div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable max-width" id="modal-div">
+            </div>
+          </div>
 
     </main>
 

@@ -30,14 +30,13 @@ const displayCategoryList =  (categories) =>{
         categories.forEach(category => {
         const {category_name : categoryName , category_id : id} = category
         const createLi = document.createElement('li')
-        // createLi.onclick = () => fetchingCategoryPost(id) 
         createLi.onclick = () => fetchingCategoryPost(id ,categoryName) 
         createLi.innerText = categoryName
         createLi.classList.add('list-group-item' , 'semibold-text')
-        cateGoryWrapper.appendChild(createLi)
-      
+        cateGoryWrapper.appendChild(createLi)    
          
     })
+    fetchingCategoryPost('08' , 'All News')
 }
 
 // fetchingCategory Post function 
@@ -64,6 +63,7 @@ const displayPost = (posts) =>{
     const defCoverImg = `https://placehold.jp/400x400.png`
     const defUserImg = `https://placehold.jp/150x150.png`
 
+    posts.sort((a, b) => b.total_view - a.total_view)
 
     newsWrapper.innerHTML = '';
     posts.forEach(post =>{
@@ -81,11 +81,11 @@ const displayPost = (posts) =>{
             <p class="card-text">${details}</p>
           </div>
           <div class="d-flex justify-content-between align-items-center">
-              <div class="aurthor-section d-flex align-items-center">
-                  <div class="aurthor-img">
+              <div class="author-section d-flex align-items-center">
+                  <div class="author-img">
                       <img src="${img ? img : defUserImg }" class=" rounded-circle border-0 user-image-circle" alt="">
                   </div>
-                  <div class="aurthor-meta ms-3">
+                  <div class="author-meta ms-3">
                       <h4 class="fs-6 fw-semibold">${name ? name : 'No name found'}</h4>
                       <h5 class="fs-6">${published_date ? published_date : 'No date found'}</h5>
                   </div>
@@ -114,4 +114,4 @@ const displayPost = (posts) =>{
 }
 // calling function
 fetchingCategoryList()
-displayPost('08')
+

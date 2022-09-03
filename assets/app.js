@@ -29,7 +29,7 @@ const displayCategoryList =  categories =>{
         const createLi = document.createElement('li')
         createLi.onclick = () => fetchingCategoryPost(id ,categoryName) 
         createLi.innerText = categoryName
-        createLi.classList.add('list-group-item' , 'semibold-text' , 'mx-4')
+        createLi.classList.add('list-group-item' , 'semibold-text' , 'mx-lg-4')
         cateGoryWrapper.appendChild(createLi)    
          
     })

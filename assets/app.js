@@ -1,6 +1,8 @@
 // variables
 const cateGoryWrapper = document.getElementById('category-list')
 const newsWrapper = document.getElementById('news-wrapper')
+const catCount = document.getElementById('cat-count')
+const catName =document.getElementById('cat-name')
 
 
 const showDropdown = () =>
@@ -28,22 +30,26 @@ const displayCategoryList =  (categories) =>{
         categories.forEach(category => {
         const {category_name : categoryName , category_id : id} = category
         const createLi = document.createElement('li')
-        createLi.onclick = () => fetchingCategoryPost(id) 
+        // createLi.onclick = () => fetchingCategoryPost(id) 
+        createLi.onclick = () => fetchingCategoryPost(id ,categoryName) 
         createLi.innerText = categoryName
         createLi.classList.add('list-group-item' , 'semibold-text')
         cateGoryWrapper.appendChild(createLi)
+      
          
     })
 }
 
-// fetchingCategory Postfunction 
+// fetchingCategory Post function 
 
-const fetchingCategoryPost = async (id) => {
+const fetchingCategoryPost = async (id , categoryName) => {
     try{ 
         const url = `https://openapi.programming-hero.com/api/news/category/${id}`
         const res = await fetch(url)
         const data = await res.json()
         displayPost(data.data);
+        catName.innerText = categoryName;
+        catCount.innerText = data.data.length ? data.data.length : 'No post found'
     }
     catch(err){
         console.log(err);
@@ -55,17 +61,10 @@ const fetchingCategoryPost = async (id) => {
 
 const displayPost = (posts) =>{
 
-    // const points = [40, 100, 1, 5, 25, 10];
-    // points.sort(function(a, b){return b - a});
-
     const defCoverImg = `https://placehold.jp/400x400.png`
     const defUserImg = `https://placehold.jp/150x150.png`
 
-    //  console.log(posts.sort(function(a, b){
 
-    //  }));
-    posts.sort
-    console.log(posts);
     newsWrapper.innerHTML = '';
     posts.forEach(post =>{
 
@@ -115,3 +114,4 @@ const displayPost = (posts) =>{
 }
 // calling function
 fetchingCategoryList()
+displayPost('08')

@@ -82,7 +82,7 @@ const displayPost = (posts) =>{
         <div class="col-md-10 py-4 px-5">
           <div class="card-body ">
             <h5 class="card-title fw-semibold">${title ? title : 'No title Found'}</h5>
-            <p class="card-text">${details}</p>
+            <p class="card-text py-2">${details.length > 250 ? details.slice(0 , 250) + '...' : details}</p>
           </div>
           <div class="d-flex justify-content-between align-items-center">
               <div class="author-section d-flex align-items-center">

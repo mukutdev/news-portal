@@ -4,13 +4,9 @@ const newsWrapper = document.getElementById('news-wrapper')
 const catCount = document.getElementById('cat-count')
 const catName =document.getElementById('cat-name')
 const newsDetailsDiv = document.getElementById('modal-div')
-
-
-const showDropdown = () =>
-{
-    dropdown.classList.toggle('showUl');
-    rotate_i.classList.toggle('rotate_i');
-}
+// placeholder images if no image found in server
+const defCoverImg = `https://placehold.jp/400x400.png`
+const defUserImg = `https://placehold.jp/150x150.png`
 
 // fetchingCategory list
 const fetchingCategoryList = async () =>{
@@ -65,8 +61,7 @@ const fetchingCategoryPost = async (id , categoryName) => {
 
 const displayPost = posts =>{
 
-    const defCoverImg = `https://placehold.jp/400x400.png`
-    const defUserImg = `https://placehold.jp/150x150.png`
+    
     // showing post in descending order
     
     posts.sort((a, b) => b.total_view - a.total_view)
@@ -138,21 +133,20 @@ const targetSinglePost = async newsId =>{
 // displaySinglePost data
 
 const displaySinglePost = post =>{
-    const {title,total_view, author :{name, published_date, img},details,image_url,rating :{number},others_info :{is_todays_pick,is_trending}} = post
+    const {title,total_view, author :{name, published_date},details,image_url,rating :{number},others_info :{is_todays_pick,is_trending}} = post
     console.log(post);
     newsDetailsDiv.innerHTML =` <div class="modal-content">
     <div class="modal-body">
-      <img src="https://i.ibb.co/M23fhxm/unsplash-Eh-Tc-C9s-YXsw.png" class=" img-fluid" alt="">
-       <h5 class="card-title fw-semibold py-3">Ukraine receives more military aid from allies on its independence day</h5>
+      <img src="${image_url ? image_url : defCoverImg}" class=" img-fluid" alt="">
+       <h5 class="card-title fw-semibold py-3">${title ? title : 'No title Found'}</h5>
        <div class="meta-info d-flex gap-2">
           <button class="btn-bg p-2  rounded-2"><i class="fa-solid fa-user text-white me-1"></i> ${name ? name : 'No name'}</button>
           <button class="btn-bg p-2 rounded-2">${is_trending === true && is_todays_pick === false ? is_trending.innerText='Trending' :is_todays_pick.innerText='Todays Pick' }</button>
           <button class="btn-bg p-2 rounded-2">${published_date ? published_date : 'No date found'}</button>
           <button class="btn-bg p-2 rounded-2"><i class="fa-sharp fa-solid fa-eye text-white"></i> ${total_view ? total_view : 'No view found'}</button>
        </div>
-       <p class="card-text py-4"> 
-        Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine, United States, Worthy News (Worthy News) – U.S. President Joe Biden has announced nearly $3 billion in new U.S. military aid for Kyiv as Ukraine marked its independence day six months after Russia invaded the country.'The United States of America is committed to supporting the people of Ukraine as they continue the fight to defend their sovereignty. As part of that commitment, I am proud to announce our biggest tranche of security assistance to date: approximately $2.
-       </p>
+       <p class="card-text py-4"> ${details}</p>
+
     </div>
     <div class="modal-footer">
       <button type="button" class="btn-bg btn-common rounded-2" data-bs-dismiss="modal">Close</button>
